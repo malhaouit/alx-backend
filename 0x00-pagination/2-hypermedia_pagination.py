@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """This module splits the dataset into manageable pages."""
 import csv
 import math
