@@ -5,8 +5,7 @@ BaseCaching = __import__('base_caching').BaseCaching
 
 
 class FIFOCache(BaseCaching):
-    """Implements FIFO cache.
-    """
+    """Implements FIFO cache."""
     def __init__(self):
         """Overloads the __init__ method of the BaseCaching class."""
         super().__init__()
@@ -18,15 +17,17 @@ class FIFOCache(BaseCaching):
 
         Args:
             key (str): The key of the value to add to the cache.
-            item (any): The value that to add to the cache.
+            item (any): The value to add to the cache.
         """
         if key is None or item is None:
             return
+
         if len(self.cache_data) >= BaseCaching.MAX_ITEMS:
             if key not in self.cache_data:
                 first_key = next(iter(self.cache_data))
                 self.cache_data.pop(first_key)
-                print("DISCARD: ", first_key)
+                print("DISCARD: {}".format(first_key))
+
         self.cache_data[key] = item
 
     def get(self, key):
@@ -38,6 +39,4 @@ class FIFOCache(BaseCaching):
         Returns:
             The cached item or None if the key is not found.
         """
-        if key is None or key not in self.cache_data:
-            return None
-        return self.cache_data[key]
+        return self.cache_data.get(key, None)
