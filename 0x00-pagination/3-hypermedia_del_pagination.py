@@ -45,7 +45,7 @@ class Server:
             page_size: int = 10) -> Dict[str, Any]:
         """Implements deletion-resilient hypermedia pagination."""
         self._Serve__index_dataset = self.indexed_dataset()
-        assert index is not None and index < len(self.dataset())
+        assert index < len(self.dataset())
 
         data = []
         current_index = index
