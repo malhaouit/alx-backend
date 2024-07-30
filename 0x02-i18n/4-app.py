@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Flask app"""
+"""Flask app with Babel configuration and locale selection."""
 
 from flask import Flask, render_template, request
 from flask_babel import Babel, gettext as _
