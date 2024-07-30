@@ -29,7 +29,7 @@ def get_locale() -> str:
     return request.accept_languages.best_match(app.config['LANGUAGES'])
 
 
-@app.route('/', strict_slashes=False)
+@app.route('/')
 def display_hello_world() -> str:
     """Outputs 'Welcome to Holberton' as page title and 'Hello world'
     as header.
