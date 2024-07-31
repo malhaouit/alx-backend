@@ -24,7 +24,7 @@ msgstr "Welcome to Holberton"
 
 #: 4-app.py:51 templates/3-index.html:9 templates/5-index.html:9
 msgid "home_header"
-msgstr "Hello world"
+msgstr "Hello world!"
 
 #: templates/5-index.html:6
 msgid "title"
