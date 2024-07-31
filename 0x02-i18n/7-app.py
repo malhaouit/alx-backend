@@ -66,6 +66,8 @@ def get_locale() -> str:
 
 @babel.timezoneselector
 def get_timezone() -> str:
+    """Gets the time zone.
+    """
     tz_param = request.args.get('timezone')
     if tz_param:
         try:
@@ -87,7 +89,7 @@ def get_timezone() -> str:
 def index() -> str:
     """Renders the template
     """
-    return render_template('6-index.html')
+    return render_template('7-index.html')
 
 
 if __name__ == '__main__':
