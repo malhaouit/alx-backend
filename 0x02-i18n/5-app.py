@@ -35,9 +35,8 @@ def before_request():
     g.user = get_user()
 
 
-def get_user() -> Optional[dict]:
-    """Returns a user dictianary or None if the ID cannot be found or if
-    login_as was not passed.
+def get_user():
+    """returns a user dictionary or None if the ID cannot be found
     """
     user_id = request.args.get('login_as')
     if user_id:
