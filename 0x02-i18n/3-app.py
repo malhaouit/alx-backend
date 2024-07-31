@@ -6,7 +6,9 @@ from flask_babel import Babel, gettext as _
 
 
 class Config:
-    """Configuration class for Flask-Babel.
+    """Configuration class for Flask-Babel. Support two languages:
+    - English
+    - Fensh
     """
     LANGUAGES = ["en", "fr"]
     BABEL_DEFAULT_LOCALE = 'en'
