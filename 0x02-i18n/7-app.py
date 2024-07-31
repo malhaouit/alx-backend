@@ -3,6 +3,8 @@
 
 from flask import Flask, render_template, request, g
 from flask_babel import Babel, gettext as _
+import pytz
+from datetime import datetime
 
 
 class Config:
@@ -89,7 +91,9 @@ def get_timezone() -> str:
 def index() -> str:
     """Renders the template
     """
-    return render_template('7-index.html')
+    current_time = datetime.now(pytz.timezone(get_timezone()))
+    current_time_str = current_time.strftime('%b %d, %Y, %I:%M:%S %p')
+    return render_template('7-index.html', current_time=current_time_str)
 
 
 if __name__ == '__main__':
