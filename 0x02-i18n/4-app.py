@@ -1,12 +1,14 @@
 #!/usr/bin/env python3
-"""Flask app with Babel configuration and locale selection."""
+"""A basic Flask app"""
 
 from flask import Flask, render_template, request
 from flask_babel import Babel, gettext as _
 
 
 class Config:
-    """Configuration class for Flask-Babel.
+    """Configuration class for Flask-Babel. Support two languages:
+    - English
+    - Fensh
     """
     LANGUAGES = ["en", "fr"]
     BABEL_DEFAULT_LOCALE = 'en'
@@ -21,7 +23,7 @@ babel = Babel(app)
 
 @babel.localeselector
 def get_locale() -> str:
-    """Determine the best match with our supported languages.
+    """Determine the best match with our supported languages
     """
     locale = request.args.get('locale')
     if locale in app.config['LANGUAGES']:
@@ -30,13 +32,10 @@ def get_locale() -> str:
 
 
 @app.route('/')
-def display_hello_world() -> str:
-    """Outputs 'Welcome to Holberton' as page title and 'Hello world'
-    as header.
+def index() -> str:
+    """Renders the template
     """
-    title = _("home_title")
-    header = _("home_header")
-    return render_template('4-index.html', title=title, header=header)
+    return render_template('4-index.html')
 
 
 if __name__ == '__main__':
